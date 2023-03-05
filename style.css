@@ -1,4 +1,4 @@
-#mydiv {
+/* #mydiv {
   position: absolute;
   z-index: 9;
   background-color: #f1f1f1;
@@ -13,14 +13,14 @@
   border: 1px solid #d3d3d3;
   text-align: center;
   cursor: move;
-}
+} */
 
-#mydivheader {
+/* #mydivheader {
   padding: 10px;
   z-index: 10;
   background-color: #2196f3;
   color: #fff;
-}
+} */
 
 .rotate {
   transform: rotate(90deg);
@@ -39,6 +39,15 @@
 
 header {
   height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header button {
+  height: min-content;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 #field {

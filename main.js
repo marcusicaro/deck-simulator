@@ -1,8 +1,12 @@
 /* eslint-disable quotes */
 let n = 1;
+let lifeTotal = 20;
 const deckArray = [];
-const body = document.querySelector("body");
+const totalLife = document.getElementById("totalLife");
+const increaseLife = document.getElementById("increaseLife");
+const decreaseLife = document.getElementById("decreaseLife");
 const hand = document.querySelector("#hand");
+const drawButton = document.getElementById("drawButton");
 
 function cardDraw() {
   const newCard = document.createElement("div");
@@ -129,7 +133,20 @@ function mouseEvents(id) {
   }
 }
 
+drawButton.addEventListener("click", () => {
+  cardDraw();
+});
 createDeck();
 
 cardDraw();
 cardDraw();
+
+increaseLife.addEventListener("click", () => {
+  lifeTotal += 1;
+  totalLife.textContent = lifeTotal;
+});
+decreaseLife.addEventListener("click", () => {
+  lifeTotal -= 1;
+  totalLife.textContent = lifeTotal;
+});
+totalLife.textContent = lifeTotal;
