@@ -6,6 +6,14 @@
   text-align: center;
   cursor: move;
 }
+#a5 {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+  cursor: move;
+}
 
 #mydivheader {
   padding: 10px;
@@ -20,4 +28,41 @@
 
 .prevent-click {
   pointer-events: none;
+}
+
+.card {
+  width: 100px;
+  height: 250px;
+  background-color: #2196f3;
+  cursor: pointer;
+}
+
+header {
+  height: 50px;
+}
+
+#field {
+  height: 450px;
+}
+
+footer {
+  display: flex;
+  border-radius: 25px;
+  border: 5px solid black;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+#hand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
+  min-height: 275px;
+}
+
+#drawButton {
+  align-self: center;
+  height: min-content;
+  padding: 5px;
 }
