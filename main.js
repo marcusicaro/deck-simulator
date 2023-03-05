@@ -1,24 +1,30 @@
 /* eslint-disable quotes */
 let n = 1;
 let lifeTotal = 20;
-const deckArray = [];
+let startingCards = 7;
+let deckArray = [];
 const totalLife = document.getElementById("totalLife");
+const mulliganButton = document.getElementById("mulliganButton");
 const increaseLife = document.getElementById("increaseLife");
 const decreaseLife = document.getElementById("decreaseLife");
 const hand = document.querySelector("#hand");
 const drawButton = document.getElementById("drawButton");
 
 function cardDraw() {
-  const newCard = document.createElement("div");
-  newCard.setAttribute("id", `a${n}`);
-  newCard.classList.add("card");
-  const text = document.createElement("p");
-  [text.textContent] = deckArray;
-  newCard.appendChild(text);
-  hand.appendChild(newCard);
-  deckArray.shift();
-  mouseEvents(`a${n}`);
-  n += 1;
+  if (deckArray.length > 0) {
+    const newCard = document.createElement("div");
+    newCard.setAttribute("id", `a${n}`);
+    newCard.classList.add("card");
+    const text = document.createElement("p");
+    [text.textContent] = deckArray;
+    newCard.appendChild(text);
+    hand.appendChild(newCard);
+    deckArray.shift();
+    mouseEvents(`a${n}`);
+    n += 1;
+  } else {
+    alert("deck is empty");
+  }
 }
 
 function createDeck() {
@@ -136,10 +142,6 @@ function mouseEvents(id) {
 drawButton.addEventListener("click", () => {
   cardDraw();
 });
-createDeck();
-
-cardDraw();
-cardDraw();
 
 increaseLife.addEventListener("click", () => {
   lifeTotal += 1;
@@ -150,3 +152,30 @@ decreaseLife.addEventListener("click", () => {
   totalLife.textContent = lifeTotal;
 });
 totalLife.textContent = lifeTotal;
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+function startDraw() {
+  for (let index = 0; index < startingCards; index++) {
+    cardDraw();
+  }
+  startingCards -= 1;
+}
+
+mulliganButton.addEventListener("click", () => {
+  if (startingCards > 0) {
+    removeAllChildNodes(hand);
+    deckArray = [];
+    createDeck();
+    startDraw();
+  } else {
+    alert("n pode começar com nenhum card");
+  }
+});
+
+createDeck();
+startDraw();

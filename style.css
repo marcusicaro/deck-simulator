@@ -54,7 +54,7 @@ header button {
   height: 450px;
 }
 
-footer {
+fieldset {
   display: flex;
   border-radius: 25px;
   border: 5px solid black;
@@ -70,8 +70,16 @@ footer {
   min-height: 275px;
 }
 
-#drawButton {
+#drawButton,
+#mulliganButton {
   align-self: center;
   height: min-content;
   padding: 5px;
+  width: 100px;
+}
+#buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
